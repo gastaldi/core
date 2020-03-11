@@ -17,7 +17,10 @@ import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
 
+import org.jboss.forge.addon.configuration.Configuration;
 import org.jboss.forge.addon.manager.impl.catalog.AddonDescriptor.AddonDescriptorCategory;
+import org.jboss.forge.furnace.addons.AddonRegistry;
+import org.jboss.forge.furnace.container.simple.lifecycle.SimpleContainer;
 
 /**
  *
@@ -28,6 +31,11 @@ public class ForgeAddonDescriptorCatalog implements AddonDescriptorCatalog
    private List<AddonDescriptor> descriptors;
 
    @Override
+   public String getName() {
+      return "forge";
+   }
+
+   @Override
    public List<AddonDescriptor> getAddonDescriptors()
    {
       if (descriptors == null)
@@ -35,7 +43,7 @@ public class ForgeAddonDescriptorCatalog implements AddonDescriptorCatalog
          List<AddonDescriptor> found = new ArrayList<>();
          try
          {
-            URL url = new URL("https://forge.jboss.org/api/addons?source=cmd");
+            URL url = new URL(getConfiguration().getString("addons-catalog-url", "https://forge.jboss.org/api/addons?source=cmd"));
             try (InputStream in = url.openStream();
                      JsonReader reader = Json.createReader(in))
             {
@@ -83,4 +91,22 @@ public class ForgeAddonDescriptorCatalog implements AddonDescriptorCatalog
       }
       return result;
    }
+
+   private Configuration getConfiguration() {
+      final AddonRegistry addonRegistry = SimpleContainer.getFurnace(getClass().getClassLoader()).getAddonRegistry();
+      return (Configuration)addonRegistry.getServices(Configuration.class).get();
+   }
+
+   @Override
+   public boolean equals(Object obj) {
+      if (this == obj)
+         return true;
+      if (obj == null)
+         return false;
+      if (getClass() != obj.getClass())
+         return false;
+      ForgeAddonDescriptorCatalog other = (ForgeAddonDescriptorCatalog) obj;
+      return other.getName().equals(this.getName());
+   }
+
 }

@@ -16,4 +16,7 @@ import java.util.List;
 public interface AddonDescriptorCatalog
 {
    List<AddonDescriptor> getAddonDescriptors();
+
+   String getName();
+   
 }
