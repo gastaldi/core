@@ -5,7 +5,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  */
 
-package org.jboss.forge.addon.manager.impl.catalog;
+package org.jboss.forge.addon.manager.catalog;
 
 import java.io.InputStream;
 import java.net.URL;
@@ -18,7 +18,7 @@ import javax.json.JsonObject;
 import javax.json.JsonReader;
 
 import org.jboss.forge.addon.configuration.Configuration;
-import org.jboss.forge.addon.manager.impl.catalog.AddonDescriptor.AddonDescriptorCategory;
+import org.jboss.forge.addon.manager.catalog.AddonDescriptor.AddonDescriptorCategory;
 import org.jboss.forge.furnace.addons.AddonRegistry;
 import org.jboss.forge.furnace.container.simple.lifecycle.SimpleContainer;
 

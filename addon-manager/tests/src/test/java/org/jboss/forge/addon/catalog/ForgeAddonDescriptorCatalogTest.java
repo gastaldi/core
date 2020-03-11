@@ -12,8 +12,8 @@ import static org.hamcrest.CoreMatchers.is;
 import java.util.List;
 
 import org.jboss.arquillian.junit.Arquillian;
-import org.jboss.forge.addon.manager.impl.catalog.AddonDescriptor;
-import org.jboss.forge.addon.manager.impl.catalog.AddonDescriptorCatalogRegistry;
+import org.jboss.forge.addon.manager.catalog.AddonDescriptor;
+import org.jboss.forge.addon.manager.catalog.AddonDescriptorCatalogRegistry;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

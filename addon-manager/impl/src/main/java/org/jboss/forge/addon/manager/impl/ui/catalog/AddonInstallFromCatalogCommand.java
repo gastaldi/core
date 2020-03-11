@@ -12,8 +12,8 @@ import java.util.StringJoiner;
 import javax.script.ScriptContext;
 import javax.script.ScriptEngine;
 
-import org.jboss.forge.addon.manager.impl.catalog.AddonDescriptor;
-import org.jboss.forge.addon.manager.impl.catalog.AddonDescriptorCatalogRegistry;
+import org.jboss.forge.addon.manager.catalog.AddonDescriptor;
+import org.jboss.forge.addon.manager.catalog.AddonDescriptorCatalogRegistry;
 import org.jboss.forge.addon.manager.impl.ui.AddonCommandConstants;
 import org.jboss.forge.addon.manager.impl.ui.AddonInstallCommand;
 import org.jboss.forge.addon.resource.Resource;
